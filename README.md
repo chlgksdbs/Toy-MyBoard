@@ -1,4 +1,4 @@
-# spring-board
+# Toy-Project
 
 ## 📅 Project Period
 > 2023.04.22 ~ 
