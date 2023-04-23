@@ -1,5 +1,7 @@
 # spring-board
-spring을 이용한 게시판 구현
+
+## 📅 Project Period
+> 2023.04.22 ~ 
 
 ## 🔧 Tools
 > IDE : spring-tool-suite-3.9.14 <br>
