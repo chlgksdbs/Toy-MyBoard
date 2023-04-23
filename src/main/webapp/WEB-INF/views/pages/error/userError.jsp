@@ -3,6 +3,6 @@
 <%@ include file="../../components/header.jsp" %>
 <script>
 	alert("로그인이 필요합니다.")
-	location.href="${root}";
+	location.href="${root}/user/login";
 </script>
 <%@ include file="../../components/footer.jsp" %>

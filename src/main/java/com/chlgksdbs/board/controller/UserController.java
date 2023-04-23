@@ -20,6 +20,12 @@ public class UserController {
 	@Autowired
 	private UserService userService;
 	
+	@GetMapping("/login")
+	public String login() {
+		
+		return "pages/auth/user/login";
+	}
+	
 	@GetMapping("/logout")
 	public String logout(HttpSession session) {
 		

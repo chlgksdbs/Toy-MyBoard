@@ -3,6 +3,6 @@
 <%@ include file="../../components/header.jsp" %>
 <script>
 	alert("회원 정보가 존재하지 않습니다.");
-	location.href="${root}";
+	location.href="${root}/user/login";
 </script>
 <%@ include file="../../components/footer.jsp" %>
