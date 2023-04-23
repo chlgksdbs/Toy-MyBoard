@@ -33,6 +33,7 @@ public class BoardController {
 
 		// View Path 설정
 		if (loginInfo == null) {
+			mav.addObject("errorMsg", "로그인이 필요합니다.");
 			mav.setViewName("pages/error/userError");
 			return mav;
 		}
@@ -46,38 +47,46 @@ public class BoardController {
 	}
 
 	@GetMapping("/write")
-	public String write(HttpSession session) {
+	public ModelAndView write(HttpSession session) {
+		
+		ModelAndView mav = new ModelAndView();
 
 		// 로그인 정보 꺼내오기
 		UserDto loginInfo = (UserDto) session.getAttribute("loginInfo");
 
 		// View Path 설정
 		if (loginInfo == null) {
-			return "pages/error/userError";
+			mav.addObject("errorMsg", "로그인이 필요합니다.");
+			mav.setViewName("pages/error/userError");
+			return mav;
 		}
-
-		return "pages/board/write";
+		
+		mav.setViewName("pages/board/write");
+		return mav;
 	}
 
 	@GetMapping("/view")
-	public String view(int bno, Model model, HttpSession session) throws SQLException {
+	public ModelAndView view(int bno, HttpSession session) throws SQLException {
+		
+		ModelAndView mav = new ModelAndView();
 
 		// 로그인 정보 꺼내오기
 		UserDto loginInfo = (UserDto) session.getAttribute("loginInfo");
 
 		// View Path 설정
 		if (loginInfo == null) {
-			return "pages/error/userError";
+			mav.addObject("errorMsg", "로그인이 필요합니다.");
+			mav.setViewName("pages/error/userError");
+			return mav;
 		}
 
 		// bno에 일치하는 board 정보를 Service로부터 가져오기
 		BoardDto board = boardService.view(bno);
 
-		// Service로부터 가져온 board 정보를 Model 객체에 담아 Forward로 전달
-		model.addAttribute("board", board);
-
-		return "pages/board/view";
-
+		// Service로부터 가져온 board 정보를 ModelAndView 객체에 담아 Forward로 전달
+		mav.addObject("board", board);
+		mav.setViewName("pages/board/view");
+		return mav;
 	}
 
 	@GetMapping("/modify")
@@ -90,6 +99,7 @@ public class BoardController {
 
 		// View Path 설정
 		if (loginInfo == null) {
+			mav.addObject("errorMsg", "로그인이 필요합니다.");
 			mav.setViewName("pages/error/userError");
 			return mav;
 		}
@@ -102,7 +112,8 @@ public class BoardController {
 			mav.addObject("board", board);
 			mav.setViewName("pages/board/modify");
 		} else {
-			mav.setViewName("pages/error/crudError");
+			mav.addObject("errorMsg", "해당 게시글에 권한이 없습니다.");
+			mav.setViewName("pages/error/boardError");
 		}
 
 		return mav;
@@ -110,14 +121,18 @@ public class BoardController {
 	}
 
 	@GetMapping("/delete")
-	public String delete(int bno, HttpSession session) throws SQLException {
+	public ModelAndView delete(int bno, HttpSession session) throws SQLException {
+		
+		ModelAndView mav = new ModelAndView();
 
 		// 로그인 정보 꺼내오기
 		UserDto loginInfo = (UserDto) session.getAttribute("loginInfo");
 
 		// View Path 설정
 		if (loginInfo == null) {
-			return "pages/error/userError";
+			mav.addObject("errorMsg", "로그인이 필요합니다.");
+			mav.setViewName("pages/error/userError");
+			return mav;
 		}
 
 		// 해당 bno의 board 정보 가져오기
@@ -126,9 +141,12 @@ public class BoardController {
 		// 작성자와 로그인 정보가 일치하는 경우에 삭제 수행
 		if (board.getBwriter().equals(loginInfo.getUserId())) {
 			boardService.delete(bno);
-			return "redirect:list";
+			mav.setViewName("redirect:list");
+			return mav;
 		} else {
-			return "pages/error/crudError";
+			mav.addObject("errorMsg", "해당 게시글에 권한이 없습니다.");
+			mav.setViewName("pages/error/boardError");
+			return mav;
 		}
 	}
 

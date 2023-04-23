@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ include file="../../components/header.jsp" %>
 <script>
-	alert("로그인이 필요합니다.")
+	alert("${errorMsg}");
 	location.href="${root}/user/login";
 </script>
 <%@ include file="../../components/footer.jsp" %>

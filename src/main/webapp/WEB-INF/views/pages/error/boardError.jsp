@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ include file="../../components/header.jsp" %>
 <script>
-	alert("회원 정보가 존재하지 않습니다.");
-	location.href="${root}/user/login";
+	alert("${errorMsg}");
+	location.href="${root}/board/list";
 </script>
 <%@ include file="../../components/footer.jsp" %>
