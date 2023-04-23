@@ -34,7 +34,7 @@ public class BoardController {
 		// View Path 설정
 		if (loginInfo == null) {
 			mav.addObject("errorMsg", "로그인이 필요합니다.");
-			mav.setViewName("pages/error/userError");
+			mav.setViewName("pages/error/loginError");
 			return mav;
 		}
 
@@ -57,7 +57,7 @@ public class BoardController {
 		// View Path 설정
 		if (loginInfo == null) {
 			mav.addObject("errorMsg", "로그인이 필요합니다.");
-			mav.setViewName("pages/error/userError");
+			mav.setViewName("pages/error/loginError");
 			return mav;
 		}
 		
@@ -76,7 +76,7 @@ public class BoardController {
 		// View Path 설정
 		if (loginInfo == null) {
 			mav.addObject("errorMsg", "로그인이 필요합니다.");
-			mav.setViewName("pages/error/userError");
+			mav.setViewName("pages/error/loginError");
 			return mav;
 		}
 
@@ -100,7 +100,7 @@ public class BoardController {
 		// View Path 설정
 		if (loginInfo == null) {
 			mav.addObject("errorMsg", "로그인이 필요합니다.");
-			mav.setViewName("pages/error/userError");
+			mav.setViewName("pages/error/loginError");
 			return mav;
 		}
 
@@ -131,7 +131,7 @@ public class BoardController {
 		// View Path 설정
 		if (loginInfo == null) {
 			mav.addObject("errorMsg", "로그인이 필요합니다.");
-			mav.setViewName("pages/error/userError");
+			mav.setViewName("pages/error/loginError");
 			return mav;
 		}
 

@@ -21,7 +21,7 @@
 			<!-- 로그인 정보가 없는 경우 -->
 			<c:if test="${empty sessionScope.loginInfo}">
 				<a href="${root}/user/login" class="btn btn-primary me-2">로그인</a>
-				<a href="#" class="btn btn-primary me-2">회원가입</a>
+				<a href="${root}/user/regist" class="btn btn-primary me-2">회원가입</a>
 			</c:if>
 			<!-- 로그인 정보가 있는 경우 -->
 			<c:if test="${not empty sessionScope.loginInfo}">

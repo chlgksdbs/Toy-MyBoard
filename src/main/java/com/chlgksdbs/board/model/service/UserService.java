@@ -17,4 +17,8 @@ public class UserService {
 	public UserDto login(String id, String pw) throws SQLException {
 		return dao.select(id, pw);
 	}
+	
+	public int regist(UserDto user) throws SQLException {
+		return dao.insert(user);
+	}
 }
