@@ -1,11 +1,12 @@
-# Toy-Project
+# spring-board
 
 ## 📅 Project Period
 > 2023.04.22 ~ 
 
 ## 🔧 Tools
 > IDE : spring-tool-suite-3.9.14 <br>
-> WAS : apache-tomcat-9.0.70
+> WAS : apache-tomcat-9.0.70 <br>
+> DB : mysql-8.0.32
 
 ## 💻 Views
 
@@ -14,6 +15,9 @@
 
 >### 로그인 화면
 <img src="https://user-images.githubusercontent.com/96401350/233844026-dc1d9b91-e47e-4ab8-899e-6f2bf645a541.png" width="700px" />
+
+>### 회원가입 화면
+<img src="https://user-images.githubusercontent.com/96401350/234293005-78d24549-c158-47db-acbe-8308498273d7.png" width="700px" />
 
 >### 메인 화면 (로그인 후)
 <img src="https://user-images.githubusercontent.com/96401350/233844030-eab7ba59-639f-4713-af8a-b7fe0d39fc2d.png" width="700px" />
